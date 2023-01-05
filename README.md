@@ -16,7 +16,7 @@ cd build
 
 ## Commands
 
-### getAddress
+### `getAddress`
 
 This is a generic request for the public key derived, given a BIP-32/BIP-44 path.
 For more information about what value to use, see [SLIP-0044](https://github.com/satoshilabs/slips/blob/master/slip-0044.md).
@@ -27,7 +27,7 @@ Please refer to your apps documentation for more information.
 ./cli.js getAddress "44'/<slip0044>'"
 ```
 
-### sign
+### `sign`
 
 This command will send a number of transaction formats to the Ledger device for signing.
 It require the same BIP path as before, and will accept a number of transaction data formats.
