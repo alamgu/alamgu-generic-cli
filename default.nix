@@ -9,7 +9,7 @@ let
     postInstallFixup = ''
       # Fixup for checkouts from git.
         echo "POST INSTALL FIXUP RUNNING"
-        for pkg in hw-app-obsidian-common
+        for pkg in hw-app-alamgu
         do
         if [ -d node_modules/$pkg ]
         then pushd node_modules/$pkg; npm run prepare; popd;
