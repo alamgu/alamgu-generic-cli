@@ -49,7 +49,7 @@
     "@ledgerhq/hw-transport-node-hid-noevents" "^6.20.0"
     "@ledgerhq/logs" "^6.10.0"
     lodash "^4.17.21"
-    node-hid "2.1.1"
+    node-hid "^2.1.2"
     usb "^1.7.0"
 
 "@ledgerhq/hw-transport-node-speculos@6.20.0":
@@ -461,15 +461,6 @@ node-gyp-build@^4.3.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/node-gyp-build/-/node-gyp-build-4.6.0.tgz#0c52e4cbf54bbd28b709820ef7b6a3c2d6209055"
   integrity sha512-NTZVKn9IylLwUzaKjkas1e4u2DLNcV4rdYagA4PWdPwW87Bi7z+BznyKSRwS/761tV/lzCGXplWsiaMjLqP2zQ==
-
-node-hid@2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/node-hid/-/node-hid-2.1.1.tgz#f83c8aa0bb4e6758b5f7383542477da93f67359d"
-  integrity sha512-Skzhqow7hyLZU93eIPthM9yjot9lszg9xrKxESleEs05V2NcbUptZc5HFqzjOkSmL0sFlZFr3kmvaYebx06wrw==
-  dependencies:
-    bindings "^1.5.0"
-    node-addon-api "^3.0.2"
-    prebuild-install "^6.0.0"
 
 node-hid@^2.1.2:
   version "2.1.2"

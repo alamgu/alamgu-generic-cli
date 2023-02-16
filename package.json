@@ -14,13 +14,15 @@
   "keywords": [],
   "license": "ISC",
   "description": "",
+  "devDependencies" : {
+    "typescript": "^4.5.5",
+    "@types/node": "^17.0.10"
+  },
   "dependencies": {
     "@ledgerhq/hw-transport-node-hid": "6.20.0",
     "@ledgerhq/hw-transport-node-speculos": "6.20.0",
-    "@types/node": "^17.0.10",
     "@types/yargs": "^17.0.8",
     "hw-app-alamgu": "git+https://github.com/alamgu/hw-app-alamgu",
-    "typescript": "^4.5.5",
     "yargs": "^17.3.1"
   }
 }
