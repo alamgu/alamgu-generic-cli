@@ -1,7 +1,7 @@
 import type { Arguments, CommandBuilder } from 'yargs';
 import Transport from '@ledgerhq/hw-transport-node-hid';
 import Speculos from '@ledgerhq/hw-transport-node-speculos';
-import { Common } from 'hw-app-obsidian-common';
+import { Common } from 'hw-app-alamgu';
 
 type Options = {
   path: string;
