@@ -103,14 +103,14 @@ let
 in rec {
   inherit deps yarnDepsNix yarnPackageNix thunkSource;
 
-  testModules = nixLib.buildNodePackage ({
+  modules = nixLib.buildNodePackage ({
     src = pkgs.runCommand "package-json" {} ''
       mkdir $out
       cp ${./package.json} $out/package.json
     '';
   } // nixLib.callTemplate yarnPackageNix deps);
 
-  testPackage = nixLib.buildNodePackage (let
+  package = nixLib.buildNodePackage (let
     self = nixLib.callTemplate yarnPackageNix deps // {
       inherit src;
       buildPhase = ''
