@@ -35,7 +35,12 @@ let
             ];
             buildInputs = with pkgs; [
               libusb1
-            ] ++ lib.optional stdenv.hostPlatform.isLinux systemd;
+            ] ++ lib.optionals stdenv.hostPlatform.isLinux [
+              systemd
+            ] ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
+              darwin.apple_sdk.frameworks.AppKit
+              darwin.cctools
+            ];
             dontBuild = false;
             buildPhase = ''
               ln -s ${nixLib.linkNodeDeps { name=attrs.name; dependencies=attrs.passthru.nodeBuildInputs; }} node_modules
@@ -52,7 +57,12 @@ let
             ];
             buildInputs = with pkgs; [
               libusb1
-            ] ++ lib.optional pkgs.stdenv.hostPlatform.isLinux systemd;
+            ] ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
+              systemd
+            ] ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
+              darwin.apple_sdk.frameworks.AppKit
+              darwin.cctools
+            ];
             dontBuild = false;
             buildPhase = ''
               ln -s ${nixLib.linkNodeDeps { name=attrs.name; dependencies=attrs.passthru.nodeBuildInputs; }} node_modules
