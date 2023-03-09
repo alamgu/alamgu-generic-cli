@@ -74,7 +74,7 @@ let
           passthru = { inherit nodeModules; };
           NODE_PATH = nodeModules;
           nodeBuildInputs = [
-            (s."@ledgerhq/hw-transport@^6.20.0")
+            (s."@ledgerhq/hw-transport@^6.28.1")
             (s."fast-sha256@^1.3.0")
             (s."typedoc@^0.22.7")
           ];
