@@ -1,4 +1,6 @@
-{ pkgs ? import (import dep/alamgu/thunk.nix + "/dep/nixpkgs") {}
+{ pkgsFunc ? import (import dep/alamgu/thunk.nix + "/dep/nixpkgs")
+, localSystem ? { system = builtins.currentSystem; }
+, pkgs ? pkgsFunc { inherit localSystem; }
 , nodejs ? pkgs.nodejs
 }:
 
@@ -30,13 +32,21 @@ let
         "usb@^1.7.0" = {
           inherit (super."usb@^1.7.0") key;
           drv = super."usb@^1.7.0".drv.overrideAttrs (attrs: {
-            nativeBuildInputs = [
-              pkgs.python3 nodejs pkgs.libusb1
-            ] ++ lib.optional pkgs.stdenv.hostPlatform.isLinux pkgs.systemd;
+            nativeBuildInputs = with pkgs.buildPackages; [
+              python3 nodejs
+            ];
+            buildInputs = with pkgs; [
+              libusb1
+            ] ++ lib.optionals stdenv.hostPlatform.isLinux [
+              systemd
+            ] ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
+              darwin.apple_sdk.frameworks.AppKit
+              darwin.cctools
+            ];
             dontBuild = false;
             buildPhase = ''
               ln -s ${nixLib.linkNodeDeps { name=attrs.name; dependencies=attrs.passthru.nodeBuildInputs; }} node_modules
-              ${pkgs.nodePackages.node-gyp}/bin/node-gyp rebuild --nodedir=${lib.getDev nodejs} # /include/node
+              ${nodejs}/lib/node_modules/npm/bin/node-gyp-bin/node-gyp rebuild --nodedir=${lib.getDev nodejs} # /include/node
             '';
           });
         };
@@ -44,13 +54,21 @@ let
         "node-hid@^2.1.2" = {
           inherit (super."node-hid@^2.1.2") key;
           drv = super."node-hid@^2.1.2".drv.overrideAttrs (attrs: {
-            nativeBuildInputs = [
-              pkgs.python3 nodejs pkgs.libusb1 pkgs.pkg-config
-            ] ++ lib.optional pkgs.stdenv.hostPlatform.isLinux pkgs.systemd;
+            nativeBuildInputs = with pkgs.buildPackages; [
+              python3 nodejs pkg-config
+            ];
+            buildInputs = with pkgs; [
+              libusb1
+            ] ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
+              systemd
+            ] ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
+              darwin.apple_sdk.frameworks.AppKit
+              darwin.cctools
+            ];
             dontBuild = false;
             buildPhase = ''
               ln -s ${nixLib.linkNodeDeps { name=attrs.name; dependencies=attrs.passthru.nodeBuildInputs; }} node_modules
-              ${pkgs.nodePackages.node-gyp}/bin/node-gyp rebuild --nodedir=${lib.getDev nodejs} # /include/node
+              ${nodejs}/lib/node_modules/npm/bin/node-gyp-bin/node-gyp rebuild --nodedir=${lib.getDev nodejs} # /include/node
             '';
           });
         };
