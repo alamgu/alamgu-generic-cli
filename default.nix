@@ -1,4 +1,6 @@
-{ pkgs ? import (import dep/alamgu/thunk.nix + "/dep/nixpkgs") {}
+{ pkgsFunc ? import (import dep/alamgu/thunk.nix + "/dep/nixpkgs")
+, localSystem ? { system = builtins.currentSystem; }
+, pkgs ? pkgsFunc { inherit localSystem; }
 , nodejs ? pkgs.nodejs
 }:
 
