@@ -95,7 +95,7 @@ export const handler = async (argv: Arguments<Options>): Promise<void> => {
 
   let res = await app.signTransaction(path, payload);
 
-  process.stdout.write(res.signature+"\n");
+  process.stdout.write(new Buffer(res.signature).toString('hex') + "\n");
   process.exit(0);
 }
 

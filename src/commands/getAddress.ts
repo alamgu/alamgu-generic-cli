@@ -54,7 +54,7 @@ export const handler = async (argv: Arguments<Options>): Promise<void> => {
     process.stdout.write(JSON.stringify(res, null, 2));
     process.exit(0);
   }
-  process.stdout.write(res.publicKey + "\n");
+  process.stdout.write(new Buffer(res.publicKey).toString('hex') + "\n");
   process.exit(0);
 }
 
