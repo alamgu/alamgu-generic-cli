@@ -1,8 +1,8 @@
 {
   "owner": "alamgu",
   "repo": "alamgu",
-  "branch": "nixpkgs-22.11",
+  "branch": "main",
   "private": false,
-  "rev": "4c000dae4616d49bfbd0f4d31cd2e2fc86586020",
-  "sha256": "1mrvnsj754fqxfm9dzw3xvc8miahik50vabcrpccajw1f11wkr4w"
+  "rev": "193bc7b8d12f91b328f9bab7d4042d5f8d16df55",
+  "sha256": "1vc8m9qyyc2j0590shkajdg0g56kshm7prdvr457g4hxv8b8nz11"
 }
