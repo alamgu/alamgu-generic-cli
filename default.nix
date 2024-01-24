@@ -29,9 +29,9 @@ let
         y = registries.yarn;
         s = self;
       in {
-        "usb@^1.7.0" = {
-          inherit (super."usb@^1.7.0") key;
-          drv = super."usb@^1.7.0".drv.overrideAttrs (attrs: {
+        "usb@^2.9.0" = {
+          inherit (super."usb@^2.9.0") key;
+          drv = super."usb@^2.9.0".drv.overrideAttrs (attrs: {
             nativeBuildInputs = with pkgs.buildPackages; [
               python3 nodejs
             ];
@@ -92,7 +92,7 @@ let
           passthru = { inherit nodeModules; };
           NODE_PATH = nodeModules;
           nodeBuildInputs = [
-            (s."@ledgerhq/hw-transport@^6.28.1")
+            (s."@ledgerhq/hw-transport@^6.30.2")
             (s."fast-sha256@^1.3.0")
             (s."typedoc@^0.22.7")
           ];

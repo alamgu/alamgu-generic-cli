@@ -18,8 +18,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@ledgerhq/hw-transport-node-hid": "6.27.12",
-    "@ledgerhq/hw-transport-node-speculos": "6.27.12",
+    "@ledgerhq/hw-transport-node-hid": "6.28.2",
+    "@ledgerhq/hw-transport-node-speculos": "6.28.2",
     "@types/yargs": "^17.0.8",
     "hw-app-alamgu": "git+https://github.com/alamgu/hw-app-alamgu",
     "yargs": "^17.3.1"
